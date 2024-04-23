@@ -1,0 +1,145 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { gsap } from "gsap";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
+    ></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <Nav />
+      <slot />
+    </main>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    ></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
+    ></script>
+    <script is:inline>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const horizontalsections = gsap.utils.toArray(
+          ".horizontal-container .panel"
+        ),
+        horizontalcontainer = document.querySelector(".horizontal-container");
+
+      gsap.to(horizontalsections, {
+        xPercent: -100 * (horizontalsections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".horizontal-container",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (horizontalsections.length - 1),
+          end: () => "+=" + horizontalcontainer.offsetWidth,
+        },
+      });
+
+      $(document).ready(function () {
+        var h1Element = $(".name-title-overlayed");
+        var text = h1Element.text().trim();
+        var letters = text.split("");
+        var delayMultiplier = 150; // Cambiado a 100 para demostración
+
+        h1Element.empty();
+
+        $.each(letters, function (index, letter) {
+          var span = $("<span>").text(letter);
+          span.attr("data-aos", "fade-up");
+          span.attr("data-aos-duration", "500");
+          span.attr("data-aos-delay", (index * delayMultiplier).toString());
+          h1Element.append(span);
+        });
+
+        var h2Element = $(".name-title-nonoverlayed");
+        var letters2 = text.split("");
+        var text2 = h2Element.text().trim();
+
+        h2Element.empty();
+
+        $.each(letters2, function (index, letter) {
+          var span = $("<span>").text(letter);
+          span.attr("data-aos", "fade-up");
+          span.attr("data-aos-duration", "500");
+          span.attr("data-aos-delay", (index * delayMultiplier).toString());
+          h2Element.append(span);
+        });
+      });
+
+      if (document.querySelector(".xlHeader--left")) {
+        gsap.to(".xlHeader--left .xlHeader__header", {
+          xPercent: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".xlHeader--left .xlHeader__header",
+            start: "top-=500 center",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      const overlay = document.querySelector(".overlay");
+      const customOverlay = document.querySelector("#custom-overlay");
+      const circlePath = document.querySelector("#circle-path");
+
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+
+      function updateOverlayPosition() {
+        const rect = overlay.getBoundingClientRect();
+        const x = ((mouseX - rect.left) / rect.width) * 100;
+        const y = ((mouseY - rect.top) / rect.height) * 100;
+
+        gsap.to(overlay, {
+          "--x": `${x}%`,
+          "--y": `${y}%`,
+        });
+
+        requestAnimationFrame(updateOverlayPosition);
+      }
+
+      overlay.style.opacity = "0";
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        overlay.style.opacity = "1";
+      });
+
+      customOverlay.addEventListener("mouseleave", () => {
+        circlePath.style.clipPath =
+          "circle(0px at var(--x, 50%) var(--y, 50%))";
+      });
+
+      customOverlay.addEventListener("mouseenter", () => {
+        circlePath.style.clipPath =
+          "circle(100px at var(--x, 50%) var(--y, 50%))";
+      });
+
+      updateOverlayPosition();
+    </script>
+  </body>
+</html>

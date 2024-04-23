@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+
+const projects = (await getCollection("work")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<section class="projects-section animate-color">
+  <div class="horizontal-container">
+    {
+      projects.map((project) => (
+        <>
+          <section
+            class="w-screen py-28 px-20 relative flex min-h-96 flex-row justify-between lg:min-h-min panel section"
+            data-color="dark"
+          >
+            <PortfolioPreview project={project} />
+          </section>
+        </>
+      ))
+    }
+  </div>
+</section>

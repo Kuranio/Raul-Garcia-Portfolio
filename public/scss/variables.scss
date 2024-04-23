@@ -1,0 +1,29 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@100;200;300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: TomatoGroteskNormal;
+    src: url('../fonts/TomatoGrotesk/TomatoGrotesk-Regular.ttf');
+}
+
+@font-face {
+    font-family: SubjectivityRegular;
+    src: url('../fonts/Subjectivity/Subjectivity-Regular.otf');
+}
+
+@font-face {
+    font-family: Soria;
+    src: url('../fonts/soria/soria-font.ttf');
+}
+
+$background: #e1dfdd;
+
+$primary: $background;
+
+$tomatoRegular: 'TomatoGroteskNormal', sans-serif;
+$SubjectivityRegular: 'SubjectivityRegular', sans-serif;
+$Soria: 'Soria', sans-serif;
+$anybody: 'Anybody', sans-serif;
+

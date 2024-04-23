@@ -1,0 +1,321 @@
+:root {
+    --scrollbar-color: rgb(255, 0, 0); /* red */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@100;200;300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: TomatoGroteskNormal;
+    src: url('../fonts/TomatoGrotesk/TomatoGrotesk-Regular.ttf');
+}
+
+@font-face {
+    font-family: SubjectivityRegular;
+    src: url('../fonts/Subjectivity/Subjectivity-Regular.otf');
+}
+
+@font-face {
+    font-family: Soria;
+    src: url('../fonts/soria/soria-font.ttf');
+}
+
+$background: #e1dfdd;
+$primary: $background;
+$dark: #212121; 
+
+$tomatoRegular: 'TomatoGroteskNormal', sans-serif;
+$SubjectivityRegular: 'SubjectivityRegular', sans-serif;
+$Soria: 'Soria', sans-serif;
+$anybody: 'Anybody', sans-serif;
+
+html {
+    overflow-x: hidden !important;
+    overflow-y: scroll;
+    height: 100%;
+    background-color: #e1dfdd;
+}
+
+body {
+    * {
+        font-family: $tomatoRegular;
+    }
+}
+
+.section {
+    height: 100vh!important;
+	width: 100vw!important;
+	display: flex!important;
+	flex-shrink: 0!important;
+}
+
+#navbar {
+    filter: invert(1);
+    mix-blend-mode: difference;
+    padding: 2.5em 3.5em !important;
+
+    * {
+        color: $dark;
+    }
+
+    @media(max-width: 992px) {
+        padding: 3em 2em !important;
+    }
+    
+    .navbar-name {
+        font-family: $tomatoRegular;
+        font-size: 1.5em;
+        color: #212121;
+    }
+
+    #menu-navbar-menu{
+        padding: 0;
+        text-align: center;
+        margin: 0;
+        margin-top: 4em;
+        list-style: none;
+
+
+        @media(min-width: 992px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 2em;
+            margin-top: 0;
+        }
+
+        li {
+            a {
+                text-decoration: none;
+                font-size: 1em;
+                text-transform: uppercase;
+                font-family: $tomatoRegular;
+                color: #212121;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @media(min-width: 992px) {
+                margin-right: 5em;
+                grid-column: unset;
+            }
+        }
+    }
+
+    .btn-menu-mobile {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transform: rotate(0);
+        transition: .5s ease-in-out;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 1em;
+
+        span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: $primary;
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0);
+            transition: .25s ease-in-out;
+        }
+
+        .line-1 {
+            top: 0;
+            transform-origin: left center;
+        }
+
+        .line-2 {
+            top: 7px;
+            transform-origin: left center;
+        }
+
+        .line-3 {
+            top: 14px;
+            transform-origin: left center;
+        }
+
+        @media(min-width: 992px) {
+            display: none;
+        }
+    }
+
+    .active {
+        height: 20px;
+
+        .line-1 {
+            transform: rotate(45deg);
+            left: 5px;
+        }
+
+        .line-2 {
+            width: 0%;
+            opacity: 0;
+        }
+
+        .line-3 {
+            transform: rotate(-45deg);
+            top: 21px;
+            left: 5px;
+        }
+    }
+}
+
+#text-scroll {
+    min-height: 35vh;
+    filter: brightness(.13) invert(1);
+    mix-blend-mode: difference;
+    
+    .xlHeader--left .xlHeader__header {
+        position: absolute;
+        top: 45%;
+        left: 60%;
+        transform: translate(0px, 50%);
+        font-family: $tomatoRegular;
+    }
+    .xlHeader__header {
+        color: $dark;
+        font-size: 4em;
+        font-family: $tomatoRegular;
+    }
+}
+
+#text-mask-effect {
+    position: relative !important;
+
+    .animation-container {
+        height: 75vh; 
+        padding: 8em 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media(min-width: 992px) {
+            padding: 5em 3em;
+            display: block;
+            height: 100vh; 
+        }
+    }
+
+    .name-title-overlayed {
+        filter: brightness(0) invert(1);
+        mix-blend-mode: difference;
+    }
+
+    .name-title-nonoverlayed, .name-title-overlayed {
+        font-family: $tomatoRegular;
+        font-size: 4em;
+        pointer-events: none;
+        line-height: 1.2;
+
+        @media(min-width: 576px) {
+            font-size: 9em;
+        }
+
+        @media(min-width: 1200px) {
+            font-size: 18em;
+        }
+    }
+    
+    .overlay {
+        visibility: hidden;
+        background: #212121;
+        color: $background;
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    
+        clip-path: circle(100px at var(--x, 50%) var(--y, 50%));
+        transition: clip-path 100ms, visibility 3s ease;
+
+        @media(min-width: 992px) {
+            visibility: visible;
+        }
+    }
+    
+    .is-open {
+        clip-path: circle(200% at 100% 100%);
+        transition: clip-path 1.3s;
+        transition-timing-function: cubic-bezier(1,-0.01,.01,.99);
+    }
+}
+
+.process-wrap {
+    overflow: hidden;
+}
+
+.process {
+    width: 800%;
+    max-width: unset !important;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-item-align: center;
+    align-self: center;
+    height: 100vh!important;
+    
+    &__item {
+      display: flex;
+      align-items: center;
+      width: 1920px;
+      height: 100%;
+      padding: 0 100px;
+      background: var(--bg-header);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+}
+
+#about-info {
+    #text-scroll {
+        filter: none !important;
+        mix-blend-mode: normal !important;
+        text-align: end;
+    }
+}
+
+.panel {
+    .image-background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .web-project-content {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.horizontal-container {
+    width: 500%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.horizontal-container h2 {
+    margin: 0 0 10px;
+}
+
+.horizontal-container p {
+    margin: 0;
+}

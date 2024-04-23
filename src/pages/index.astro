@@ -1,0 +1,15 @@
+---
+import Header from "../components/Header/Header.astro";
+import About from "../components/About/About.astro";
+import Work from "./work.astro";
+import "../../public/scss/general.scss";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <div id="text-mask-effect">
+    <Header />
+    <Work />
+  </div>
+  <About />
+</Layout>
