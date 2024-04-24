@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../../../public/assets/raul-garcia-image-profile.avif";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  phrase?: string | undefined;
+}
+
+const {
+  title = "Passionate about Web Technologies",
+  description = "My name is Raul Garcia and I am dedicated to frontend web design and development. I currently work at 22GRADOS, a marketing agency that develops creative websites for different entities.",
+  phrase = "I find inspiration in the connection between creating and developing unique websites.",
+} = Astro.props;
+---
+
+<section
+  class="w-screen py-28 px-20 relative flex min-h-96 flex-row-reverse justify-between lg:min-h-min panel section"
+  data-color="dark"
+>
+  <div class="flex max-w-4xl flex-col items-start justify-between">
+    <div class="flex flex-col">
+      <h2 class="text-8xl">{title}</h2>
+      <p class="text-2xl mt-5">{description}</p>
+    </div>
+    <div class="flex flex-row justify-end items-center w-full pe-16">
+      <p class="text-2xl text-right max-w-[562px]">
+        {phrase}
+      </p>
+    </div>
+  </div>
+  <aside class="absolute -z-10 opacity-20 lg:relative lg:opacity-100">
+    <Image
+      class="max-w-[720px] -scale-x-100"
+      src={profileImage}
+      alt="Raul Garcia Diaz profile image"
+      loading="lazy"
+      decoding="async"
+    />
+  </aside>
+</section>

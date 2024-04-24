@@ -9,7 +9,7 @@
       "@components/*": ["src/components/*"],
       "@aceternityui/*": ["src/components/react/aceternityui/*"],
       "@utils/*": ["utils/*"],
-      "@js/*": ["src/js/*"]
+      "@js/*": ["src/js/*"],
     }
   }
 }
