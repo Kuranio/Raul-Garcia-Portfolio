@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import profileImage from "../../../public/assets/raul-garcia-image-profile.avif";
+import profileImage from "../../public/assets/raul-garcia-image-profile.avif";
 
 interface Props {
   title?: string | undefined;
@@ -16,16 +16,18 @@ const {
 ---
 
 <section
-  class="w-screen py-28 px-20 relative flex min-h-96 flex-row-reverse justify-between lg:min-h-min panel section"
+  class="w-screen py-28 px-10 sm:px-20 relative flex min-h-96 flex-row-reverse justify-between lg:min-h-min panel section"
   data-color="dark"
 >
-  <div class="flex max-w-4xl flex-col items-start justify-between">
+  <div class="flex sm:max-w-4xl flex-col items-start justify-between">
     <div class="flex flex-col">
-      <h2 class="text-8xl">{title}</h2>
-      <p class="text-2xl mt-5">{description}</p>
+      <h2 class="text-5xl sm:text-8xl">{title}</h2>
+      <p class="text-xl sm:text-2xl mt-5">{description}</p>
     </div>
-    <div class="flex flex-row justify-end items-center w-full pe-16">
-      <p class="text-2xl text-right max-w-[562px]">
+    <div
+      class="flex flex-row justify-end items-center w-full mt-10 sm:mt-0 sm:pe-16"
+    >
+      <p class="text-md sm:text-2xl text-right sm:max-w-[562px]">
         {phrase}
       </p>
     </div>

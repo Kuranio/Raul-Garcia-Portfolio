@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
+import "../../public/scss/general.scss";
+
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 
 const projects = (await getCollection("work")).sort(
@@ -9,13 +11,13 @@ const projects = (await getCollection("work")).sort(
 );
 ---
 
-<section class="projects-section animate-color">
-  <div class="horizontal-container">
+<section class="racesWrapper">
+  <div class="races">
     {
       projects.map((project: any) => (
         <>
           <section
-            class="w-screen py-28 px-20 relative flex min-h-96 flex-row justify-between lg:min-h-min panel section"
+            class="w-screen py-28 px-10 sm:px-20 relative flex min-h-96 flex-col sm:flex-row sm:justify-between lg:min-h-min panel section"
             data-color="dark"
           >
             <PortfolioPreview project={project} />

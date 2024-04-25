@@ -1,0 +1,25 @@
+---
+interface Props {
+  text?: string | undefined;
+  email?: string | undefined;
+  emailhref?: string | undefined;
+}
+
+const { text = "Send me a message at", email = "info@kuraniodesign.com" } =
+  Astro.props;
+---
+
+<section
+  class="mx-auto min-h-screen flex items-center max-w-6xl px-2 pt-16 selection:bg-primary selection:text-secondary md:pt-20 lg:px-10"
+>
+  <div
+    class="relative flex flex-col h-[60vh] items-center justify-center md:h-[76vh]"
+  >
+    <p class="text-3xl">
+      {text}
+    </p>
+    <a class="text-8xl mt-2" href={`mailto:${email}`}>
+      {email}
+    </a>
+  </div>
+</section>

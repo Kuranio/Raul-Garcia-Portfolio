@@ -1,5 +1,4 @@
 ---
-import ReplacementSwap from "astro-vtbot/components/ReplacementSwap.astro";
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
@@ -43,27 +42,29 @@ const { title, description } = Astro.props;
       function initializeAnimations() {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Verificar la existencia de .horizontal-container
-        const horizontalcontainer = document.querySelector(
-          ".horizontal-container"
-        );
-        if (horizontalcontainer) {
-          const horizontalsections = gsap.utils.toArray(
-            ".horizontal-container .panel"
-          );
+        const races = document.querySelector(".races");
+        if (!races) return;
 
-          gsap.to(horizontalsections, {
-            xPercent: -100 * (horizontalsections.length - 1),
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".horizontal-container",
-              pin: true,
-              scrub: 1,
-              snap: 1 / (horizontalsections.length - 1),
-              end: () => "+=" + horizontalcontainer.offsetWidth,
-            },
-          });
+        function getScrollAmount() {
+          let racesWidth = races.scrollWidth;
+          return -(racesWidth - window.innerWidth * 1.1);
         }
+
+        const tween = gsap.to(races, {
+          x: getScrollAmount,
+          duration: 3,
+          ease: "none",
+        });
+
+        ScrollTrigger.create({
+          trigger: ".racesWrapper",
+          start: "top 0%",
+          end: () => `+=${getScrollAmount() * -1}`,
+          pin: true,
+          animation: tween,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        });
 
         // Animación para el título h1 overlayed
         animateText(".name-title-overlayed");

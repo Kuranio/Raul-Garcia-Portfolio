@@ -36,6 +36,8 @@ html {
 }
 
 body {
+    overflow-x: hidden;
+
     * {
         font-family: $tomatoRegular;
     }
@@ -58,7 +60,7 @@ body {
     }
 
     @media(max-width: 992px) {
-        padding: 3em 2em !important;
+        padding: 1.5em 2em !important;
     }
     
     .navbar-name {
@@ -74,15 +76,12 @@ body {
         margin-top: 4em;
         list-style: none;
 
-
-        @media(min-width: 992px) {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-            margin-top: 2em;
-            margin-top: 0;
-        }
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 2em;
+        margin-top: 0;
 
         li {
             a {
@@ -318,4 +317,10 @@ body {
 
 .horizontal-container p {
     margin: 0;
+}
+
+.races {
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
 }

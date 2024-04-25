@@ -8,21 +8,25 @@ interface Props {
 const { data, slug } = Astro.props.project;
 ---
 
-<div class="flex w-full flex-col items-start justify-between">
+<div class="flex w-screen sm:w-full flex-col items-start justify-between">
   <div class="flex flex-col">
-    <h2 class="text-9xl">{data.title}</h2>
-    <p class="text-3xl self-end max-w-[253px]">{data.subtitle}</p>
+    <h2 class="text-5xl sm:text-9xl">{data.title}</h2>
+    <p class="text-xl max-w-[200px] sm:text-3xl sm:self-end sm:max-w-[253px]">
+      {data.subtitle}
+    </p>
   </div>
-  <div class="flex flex-row justify-between items-center w-full pe-16">
-    <p class="text-3xl">
+  <div
+    class="absolute bottom-[2em] max-w-[300px] sm:max-w-none sm:block flex flex-row justify-between items-center w-full sm:pe-16"
+  >
+    <p class="text-xl sm:text-3xl">
       {data.tags}
     </p>
-    <a href={`/work/${slug}`} class="text-3xl"> More </a>
+    <a href={`/work/${slug}`} class="text-xl sm:text-3xl"> More </a>
   </div>
 </div>
-<aside class="absolute -z-10 opacity-20 lg:relative lg:opacity-100">
+<aside class="mt-5 sm:mt-0 -z-10 lg:relative lg:opacity-100">
   <img
-    class="min-w-[700px]"
+    class="max-w-[300px] sm:min-w-[700px]"
     src={data.img}
     alt={data.img_alt || ""}
     loading="lazy"
