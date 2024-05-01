@@ -16,25 +16,28 @@ const {
 ---
 
 <section
-  class="w-screen py-28 px-10 sm:px-20 relative flex min-h-96 flex-row-reverse justify-between lg:min-h-min panel section"
+  class="w-screen pt-28 xl:pt-0 xl:py-28 px-10 xl:px-20 relative flex min-h-96 flex-col xl:flex-row-reverse justify-between xl:min-h-min panel section"
   data-color="dark"
 >
-  <div class="flex sm:max-w-4xl flex-col items-start justify-between">
+  <div class="flex xl:max-w-4xl flex-col items-start justify-between">
     <div class="flex flex-col">
-      <h2 class="text-5xl sm:text-8xl">{title}</h2>
-      <p class="text-xl sm:text-2xl mt-5">{description}</p>
+      <h2 class="text-5xl xl:text-8xl">{title}</h2>
+      <p class="text-xl xl:text-2xl mt-5">{description}</p>
     </div>
     <div
-      class="flex flex-row justify-end items-center w-full mt-10 sm:mt-0 sm:pe-16"
+      class="hidden xl:flex flex-row justify-end items-center w-full mt-10 xl:mt-0 xl:pe-16"
     >
-      <p class="text-md sm:text-2xl text-right sm:max-w-[562px]">
+      <p class="text-md xl:text-2xl text-right xl:max-w-[562px]">
         {phrase}
       </p>
     </div>
   </div>
-  <aside class="absolute -z-10 opacity-20 lg:relative lg:opacity-100">
+  <aside class="md:flex md:justify-end md:items-end xl:relative xl:opacity-100">
+    <p class="block xl:hidden pe-10 text-md text-right">
+      {phrase}
+    </p>
     <Image
-      class="max-w-[720px] -scale-x-100"
+      class="w-100 mt-10 xl:mt-0 md:max-w-[300px] xl:max-w-[720px] xl:-scale-x-100"
       src={profileImage}
       alt="Raul Garcia Diaz profile image"
       loading="lazy"
