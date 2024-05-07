@@ -44,30 +44,54 @@ const { title, description } = Astro.props;
       function initializeAnimations() {
         gsap.registerPlugin(ScrollTrigger);
 
-        const races = document.querySelector(".races");
-        if (!races) return;
+        function createScrollAnimation(
+          element,
+          triggerSelector,
+          getScrollAmount,
+          startPosition = "top 0%"
+        ) {
+          const target = document.querySelector(element);
+          if (!target) return;
 
-        function getScrollAmount() {
-          let racesWidth = races.scrollWidth;
-          let multiplier = window.innerWidth >= 768 ? 1 : 1.1;
-          return -(racesWidth - window.innerWidth * multiplier);
+          const tween = gsap.to(target, {
+            x: getScrollAmount,
+            duration: 3,
+            ease: "none",
+          });
+
+          ScrollTrigger.create({
+            trigger: triggerSelector,
+            start: startPosition,
+            end: () => `+=${getScrollAmount() * -1}`,
+            pin: true,
+            animation: tween,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          });
         }
 
-        const tween = gsap.to(races, {
-          x: getScrollAmount,
-          duration: 3,
-          ease: "none",
-        });
+        createScrollAnimation(
+          ".races",
+          ".racesWrapper",
+          () => {
+            let racesWidth = document.querySelector(".races").scrollWidth;
+            let multiplier = window.innerWidth >= 768 ? 1 : 1.1;
+            return -(racesWidth - window.innerWidth * multiplier);
+          },
+          "top 0%" // Cambia aquí el valor de inicio según tu preferencia
+        );
 
-        ScrollTrigger.create({
-          trigger: ".racesWrapper",
-          start: "top 0%",
-          end: () => `+=${getScrollAmount() * -1}`,
-          pin: true,
-          animation: tween,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        });
+        createScrollAnimation(
+          ".imagesWrapper",
+          ".singleProjectWrapper",
+          () => {
+            let imageWidth =
+              document.querySelector(".imagesWrapper").scrollWidth;
+            let multiplier = window.innerWidth >= 768 ? 0.5 : 1.1;
+            return -(imageWidth - window.innerWidth * multiplier);
+          },
+          "top 0%" // Cambia aquí el valor de inicio según tu preferencia
+        );
 
         // Animación para el título h1 overlayed
         animateText(".name-title-overlayed");

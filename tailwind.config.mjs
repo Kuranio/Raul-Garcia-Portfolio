@@ -5,7 +5,11 @@ export default {
 		extend: {
 			scale: {
 				'-100': '-1',
-			}
+			},
+			colors: {
+				'dark': '#212121',
+				'light': '#e1dfdd',
+			},
 		},
 	},
 	plugins: [],
