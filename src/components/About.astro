@@ -16,7 +16,7 @@ const {
 ---
 
 <section
-  class="w-screen pt-28 xl:pt-0 xl:py-28 px-10 xl:px-20 relative flex min-h-96 flex-col xl:flex-row-reverse justify-between xl:min-h-min panel section"
+  class="w-screen pt-16 sm:pt-28 lg:gap-12 xl:gap-24 xl:pt-16 xl:py-28 px-10 xl:px-20 relative flex min-h-96 flex-col xl:flex-row-reverse justify-between xl:min-h-min panel section"
   data-color="dark"
 >
   <div class="flex xl:max-w-4xl flex-col items-start justify-between">
@@ -32,16 +32,18 @@ const {
       </p>
     </div>
   </div>
-  <aside class="md:flex md:justify-end md:items-end xl:relative xl:opacity-100">
-    <p class="block xl:hidden pe-10 text-md text-right">
-      {phrase}
-    </p>
+  <aside
+    class="md:flex md:justify-end md:items-end md:gap-16 xl:relative xl:opacity-100"
+  >
     <Image
-      class="w-100 mt-10 xl:mt-0 md:max-w-[300px] xl:max-w-[720px] xl:-scale-x-100"
+      class="w-100 h-full mt-10 object-cover xl:mt-0 md:max-w-[300px] lg:max-w-[500px] xl:max-w-[720px] md:-scale-x-100"
       src={profileImage}
       alt="Raul Garcia Diaz profile image"
       loading="lazy"
       decoding="async"
     />
+    <p class="block mt-5 sm:mt-0 xl:hidden md:pe-10 text-md text-right">
+      {phrase}
+    </p>
   </aside>
 </section>

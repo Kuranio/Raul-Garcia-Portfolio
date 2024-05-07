@@ -10,7 +10,7 @@ const { data, slug } = Astro.props.project;
 
 <div class="flex w-screen xl:w-full flex-col items-start justify-between">
   <div class="flex flex-col">
-    <h2 class="text-5xl xl:text-9xl">{data.title}</h2>
+    <h2 class="text-5xl lg:text-6xl xl:text-8xl xxl:text-9xl">{data.title}</h2>
     <p class="text-xl max-w-[200px] xl:text-3xl xl:self-end xl:max-w-[253px]">
       {data.subtitle}
     </p>
@@ -26,7 +26,7 @@ const { data, slug } = Astro.props.project;
 </div>
 <aside class="mt-5 md:mt-0 -z-10 md:relative md:opacity-100">
   <img
-    class="h-full object-cover sm:h-unset max-w-[300px] xl:min-w-[700px]"
+    class="h-full object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
     src={data.img}
     alt={data.img_alt || ""}
     loading="lazy"
