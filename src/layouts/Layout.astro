@@ -87,7 +87,7 @@ const { title, description } = Astro.props;
           () => {
             let imageWidth =
               document.querySelector(".imagesWrapper").scrollWidth;
-            let multiplier = window.innerWidth >= 768 ? 0.5 : 1.1;
+            let multiplier = window.innerWidth >= 768 ? 0.5 : 0.3;
             return -(imageWidth - window.innerWidth * multiplier);
           },
           "top 0%" // Cambia aquí el valor de inicio según tu preferencia
