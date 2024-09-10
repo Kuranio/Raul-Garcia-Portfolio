@@ -5,7 +5,7 @@ interface Props {
   emailhref?: string | undefined;
 }
 
-const { text = "Send me a message at", email = "info@kuraniodesign.com" } =
+const { text = "Send me a message at", email = "info@raulgarciadiaz.com" } =
   Astro.props;
 ---
 
@@ -15,10 +15,20 @@ const { text = "Send me a message at", email = "info@kuraniodesign.com" } =
   <div
     class="relative flex flex-col xl:h-[60vh] items-center justify-center md:h-[76vh]"
   >
-    <p class="text-xl xl:text-3xl">
+    <p
+      class="text-xl xl:text-3xl"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+    >
       {text}
     </p>
-    <a class="text-2xl xl:text-8xl mt-2" href={`mailto:${email}`}>
+    <a
+      class="text-2xl xl:text-8xl mt-2"
+      id="contact-email"
+      href={`mailto:${email}`}
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       {email}
     </a>
   </div>

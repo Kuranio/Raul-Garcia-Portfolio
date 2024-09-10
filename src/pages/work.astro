@@ -17,7 +17,7 @@ const projects = (await getCollection("work")).sort(
       projects.map((project: any) => (
         <>
           <section
-            class="w-screen pt-36 pb-28 xl:py-28 px-10 xl:px-20 relative flex min-h-96 md:min-h-screen xl:min-h-96 flex-col md:flex-row md:justify-between panel section"
+            class="w-screen pt-36 pb-28 xl:py-28 px-10 xl:px-20 relative flex min-h-96 md:min-h-screen xl:min-h-96 flex-col md:flex-row md:justify-between panel section project-container"
             data-color="dark"
           >
             <PortfolioPreview project={project} />

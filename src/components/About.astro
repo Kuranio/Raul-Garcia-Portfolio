@@ -22,19 +22,37 @@ const {
 >
   <div class="flex xl:max-w-4xl flex-col items-start justify-between">
     <div class="flex flex-col">
-      <h2 class="text-5xl xl:text-8xl">{title}</h2>
-      <p class="text-xl xl:text-2xl mt-5">{description}</p>
+      <h2
+        class="text-5xl xl:text-8xl"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        {title}
+      </h2>
+      <p
+        class="text-xl xl:text-2xl mt-5"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        {description}
+      </p>
     </div>
     <div
       class="hidden xl:flex flex-row justify-end items-center w-full mt-10 xl:mt-0 xl:pe-16"
     >
-      <p class="text-md xl:text-2xl text-right xl:max-w-[562px]">
+      <p
+        class="text-md xl:text-2xl text-right xl:max-w-[562px]"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      >
         {phrase}
       </p>
     </div>
   </div>
   <aside
     class="md:flex md:justify-end md:items-end md:gap-16 xl:relative xl:opacity-100"
+    data-aos="fade-right"
+    data-aos-duration="1000"
   >
     <Image
       class="w-100 h-full mt-10 object-cover xl:mt-0 md:max-w-[300px] lg:max-w-[500px] xl:max-w-[720px] md:-scale-x-100"
