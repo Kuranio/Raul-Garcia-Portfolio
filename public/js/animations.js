@@ -137,4 +137,17 @@ function setupOverlay() {
   updateOverlayPosition();
 }
 
+document
+  .getElementById("mobile-menu-button")
+  .addEventListener("click", function () {
+    const navbarCollapse = document.getElementById("navbar-default");
+    if (navbarCollapse.classList.contains("hidden")) {
+      navbarCollapse.classList.remove("hidden");
+      navbarCollapse.classList.add("block");
+    } else {
+      navbarCollapse.classList.remove("block");
+      navbarCollapse.classList.add("hidden");
+    }
+  });
+
 AOS.init();

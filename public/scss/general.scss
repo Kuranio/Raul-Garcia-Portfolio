@@ -101,6 +101,15 @@ body {
         }
     }
 
+    #navbar-default {
+        display: none; /* Oculta el menú por defecto en pantallas pequeñas */
+    }
+
+    /* Muestra el menú cuando se activa */
+    #navbar-default.block {
+        display: block;
+    }
+    
     .btn-menu-mobile {
         width: 30px;
         height: 20px;
@@ -113,13 +122,22 @@ body {
         flex-direction: column;
         justify-content: space-between;
         margin-right: 1em;
+        z-index: 999;
+
+        /* Estilo para el contenedor del menú */
+        
+
+
+        &:focus {
+            box-shadow: unset
+        }
 
         span {
             display: block;
             position: absolute;
             height: 2px;
             width: 100%;
-            background-color: $primary;
+            background-color: white;
             border-radius: 9px;
             opacity: 1;
             left: 0;
@@ -140,10 +158,7 @@ body {
         .line-3 {
             top: 14px;
             transform-origin: left center;
-        }
-
-        @media(min-width: 992px) {
-            display: none;
+            width: 50%;
         }
     }
 
