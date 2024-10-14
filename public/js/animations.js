@@ -1,6 +1,43 @@
 function initializeAnimations() {
   gsap.registerPlugin(ScrollTrigger);
 
+  function createScrollAnimation(
+    element,
+    triggerSelector,
+    getScrollAmount,
+    startPosition = "top 0%"
+  ) {
+    const target = document.querySelector(element);
+    if (!target) return;
+
+    const tween = gsap.to(target, {
+      x: getScrollAmount,
+      duration: 3,
+      ease: "none",
+    });
+
+    ScrollTrigger.create({
+      trigger: triggerSelector,
+      start: startPosition,
+      end: () => `+=${getScrollAmount() * -1.5}`,
+      pin: true,
+      animation: tween,
+      scrub: 1,
+      invalidateOnRefresh: true,
+    });
+  }
+
+  createScrollAnimation(
+    ".imagesWrapper",
+    ".singleProjectWrapper",
+    () => {
+      let imageWidth = document.querySelector(".imagesWrapper").scrollWidth;
+      let multiplier = window.innerWidth >= 768 ? 0.5 : 0.3;
+      return -(imageWidth - window.innerWidth * multiplier);
+    },
+    "top 0%" // Cambia aquí el valor de inicio según tu preferencia
+  );
+
   // Animación para el título h1 overlayed
   animateText(".name-title-overlayed");
 

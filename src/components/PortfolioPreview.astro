@@ -12,15 +12,16 @@ const { data, slug } = Astro.props.project;
   class="sticky top-[100px] flex w-screen xl:w-full h-[100px] flex-col items-start justify-between"
 >
   <div class="flex flex-col">
-    <h2
-      class="text-5xl lg:text-6xl xl:text-8xl xxl:text-9xl"
+    <a
+      href={`/work/${slug}`}
+      class="text-5xl lg:text-6xl xl:text-8xl xxl:text-9xl underline"
       data-aos="fade-right"
       data-aos-duration="1000"
     >
       {data.title}
-    </h2>
+    </a>
     <p
-      class="text-xl max-w-[200px] xl:text-3xl xl:self-end xl:max-w-[253px]"
+      class="text-xl max-w-[200px] xl:text-3xl xl:self-end xl:max-w-[253px] mt-5"
       data-aos="fade-left"
       data-aos-duration="1000"
     >
@@ -28,14 +29,16 @@ const { data, slug } = Astro.props.project;
     </p>
   </div>
 </div>
-<aside class="project-aside mt-10 md:mt-0 -z-10 md:relative md:opacity-100">
-  <img
-    class="h-[400px] md:h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
-    data-aos="fade-left"
-    data-aos-duration="1000"
-    src={data.img}
-    alt={data.img_alt || ""}
-    loading="lazy"
-    decoding="async"
-  />
-</aside>
+<a href={`/work/${slug}`}>
+  <aside class="project-aside mt-10 md:mt-0 -z-10 md:relative md:opacity-100">
+    <img
+      class="h-[400px] md:h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      src={data.img}
+      alt={data.img_alt || ""}
+      loading="lazy"
+      decoding="async"
+    />
+  </aside>
+</a>
