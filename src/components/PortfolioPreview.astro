@@ -8,7 +8,9 @@ interface Props {
 const { data, slug } = Astro.props.project;
 ---
 
-<div class="flex w-screen xl:w-full flex-col items-start justify-between">
+<div
+  class="sticky top-[100px] flex w-screen xl:w-full h-[100px] flex-col items-start justify-between"
+>
   <div class="flex flex-col">
     <h2
       class="text-5xl lg:text-6xl xl:text-8xl xxl:text-9xl"
@@ -25,20 +27,10 @@ const { data, slug } = Astro.props.project;
       {data.subtitle}
     </p>
   </div>
-  <div
-    class="absolute bottom-[2em] max-w-[300px] md:max-w-none md:relative md:bottom-0 md:flex flex-row justify-between items-center w-full md:pe-16"
-  >
-    <p class="text-xl xl:text-3xl">
-      {data.tags}
-    </p>
-    <a href={`/work/${slug}`} class="text-xl xl:text-3xl underline-effect">
-      More
-    </a>
-  </div>
 </div>
 <aside class="mt-5 md:mt-0 -z-10 md:relative md:opacity-100">
   <img
-    class="h-full object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
+    class="h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
     data-aos="fade-left"
     data-aos-duration="1000"
     src={data.img}

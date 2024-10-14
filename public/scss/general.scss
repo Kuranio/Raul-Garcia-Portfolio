@@ -25,31 +25,17 @@ $Soria: 'Soria', sans-serif;
 $anybody: 'Anybody', sans-serif;
 
 html {
-    overflow-x: hidden !important;
-    overflow-y: scroll;
-    height: 100%;
     background-color: #e1dfdd;
 }
 
 body {
-    overflow-x: hidden;
-
     * {
         font-family: $tomatoRegular;
     }
 }
 
-.section {
-    @media(min-width: 992px) {
-        height: 100vh!important;
-        width: 100vw!important;
-        display: flex!important;
-        flex-shrink: 0!important;
-    }
-}
-
 #navbar {
-    filter: invert(1);
+    filter: brightness(0) invert(1);
     mix-blend-mode: difference;
     padding: 1.5em 3.5em !important;
 
@@ -101,15 +87,6 @@ body {
         }
     }
 
-    #navbar-default {
-        display: none; /* Oculta el menú por defecto en pantallas pequeñas */
-    }
-
-    /* Muestra el menú cuando se activa */
-    #navbar-default.block {
-        display: block;
-    }
-    
     .btn-menu-mobile {
         width: 30px;
         height: 20px;
@@ -118,15 +95,10 @@ body {
         transition: .5s ease-in-out;
         background-color: transparent;
         border: none;
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-right: 1em;
         z-index: 999;
-
-        /* Estilo para el contenedor del menú */
-        
-
 
         &:focus {
             box-shadow: unset

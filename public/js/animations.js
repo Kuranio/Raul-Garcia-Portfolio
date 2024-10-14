@@ -28,17 +28,6 @@ function initializeAnimations() {
   }
 
   createScrollAnimation(
-    ".races",
-    ".racesWrapper",
-    () => {
-      let racesWidth = document.querySelector(".races").scrollWidth;
-      let multiplier = window.innerWidth >= 768 ? 1 : 1.1;
-      return -(racesWidth - window.innerWidth * multiplier);
-    },
-    "top 0%" // Cambia aquí el valor de inicio según tu preferencia
-  );
-
-  createScrollAnimation(
     ".imagesWrapper",
     ".singleProjectWrapper",
     () => {
