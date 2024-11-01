@@ -14,7 +14,7 @@ const { data, slug } = Astro.props.project;
   <div class="flex flex-col">
     <a
       href={`/work/${slug}`}
-      class="text-5xl lg:text-6xl xl:text-8xl xxl:text-9xl underline"
+      class="text-5xl lg:text-6xl xl:text-6xl 2xl:text-8xl underline"
       data-aos="fade-right"
       data-aos-duration="1000"
     >
@@ -32,7 +32,7 @@ const { data, slug } = Astro.props.project;
 <a href={`/work/${slug}`}>
   <aside class="project-aside mt-10 md:mt-0 -z-10 md:relative md:opacity-100">
     <img
-      class="h-[400px] md:h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[500px] xl:max-w-[720px]"
+      class="h-[400px] md:h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[720px]"
       data-aos="fade-left"
       data-aos-duration="1000"
       src={data.img}
