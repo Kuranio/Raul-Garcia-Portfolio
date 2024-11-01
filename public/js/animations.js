@@ -32,7 +32,7 @@ function initializeAnimations() {
     ".singleProjectWrapper",
     () => {
       let imageWidth = document.querySelector(".imagesWrapper").scrollWidth;
-      let multiplier = window.innerWidth >= 768 ? 0.5 : 0.3;
+      let multiplier = window.innerWidth >= 768 ? 0.6 : 0.3;
       return -(imageWidth - window.innerWidth * multiplier);
     },
     "top 0%" // Cambia aquí el valor de inicio según tu preferencia
