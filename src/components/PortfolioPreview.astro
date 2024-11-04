@@ -9,7 +9,7 @@ const { data, slug } = Astro.props.project;
 ---
 
 <div
-  class="sticky top-[100px] flex w-full xl:w-full h-[100px] flex-col items-start justify-between"
+  class="sticky top-[100px] flex w-full xl:w-full flex-col items-start justify-between"
 >
   <div class="flex flex-col">
     <a
@@ -31,7 +31,7 @@ const { data, slug } = Astro.props.project;
   </div>
 </div>
 <a href={`/work/${slug}`}>
-  <aside class="project-aside mt-10 md:mt-0 -z-10 md:relative md:opacity-100">
+  <aside class="project-aside mt-8 md:mt-0 -z-10 md:relative md:opacity-100">
     <img
       class="h-[400px] md:h-[1000px] object-cover sm:h-unset max-w-[300px] lg:max-w-[720px]"
       data-aos="fade-left"
