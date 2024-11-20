@@ -24,11 +24,12 @@ const { Content } = await entry.render();
 
 <Layout title={entry.data.title} description={entry.data.description}>
   <section
-    class="singleProjectWrapper h-full bg-dark text-light fixed w-full pt-36 pb-28 xl:py-28 px-10 xl:px-20 flex min-h-96 md:min-h-screen flex-row md:justify-between panel section"
+    class="singleProjectWrapper h-full lg:h-screen bg-dark text-light w-full pt-32 pb-28 xl:py-28 px-8 xl:px-20 flex flex-col lg:flex-row min-h-96 md:min-h-screen md:justify-between panel section"
     data-color="dark"
   >
+    <!-- Contenedor principal de texto -->
     <div
-      class="flex min-w-[75%] md:min-w-[50%] flex-col items-start justify-between"
+      class="contentWrapper flex flex-col min-w-[75%] md:min-w-[50%] items-start justify-between"
     >
       <div class="flex flex-col">
         <a
@@ -43,46 +44,44 @@ const { Content } = await entry.render();
         >
           {entry.data.subtitle}
         </p>
-        <div class="mt-28 text-2xl">
+        <div class="mt-20 md:mt-28 text-lg md:text-2xl">
           <Content />
         </div>
       </div>
       <div
-        class="absolute bottom-[2em] max-w-[300px] md:max-w-none md:relative md:bottom-0 md:flex flex-row justify-between items-center w-full md:pe-16"
+        class="tagsContainer sm:absolute mt-8 lg:mt-0 bottom-[2em] max-w-[300px] md:max-w-none md:relative md:bottom-0 md:flex flex-row justify-between items-center w-full md:pe-16"
       >
         <p class="text-xl xl:text-3xl">
           {entry.data.tags}
         </p>
       </div>
     </div>
-    <div class="imagesWrapper">
-      <aside
-        class="mt-5 md:mt-0 -z-10 md:relative md:opacity-100 px-6 md:px-28"
-      >
+
+    <!-- Contenedor de imágenes -->
+    <div
+      class="imagesWrapper flex mt-8 lg:mt-0 lg:flex-row flex-col items-center lg:items-start lg:space-x-6"
+    >
+      <aside class="imageContainer h-full mt-5 lg:mt-0 lg:px-28">
         <img
-          class="h-full object-contain sm:h-unset min-w-[657px] md:min-w-[1315px]"
+          class="h-full object-contain sm:h-unset min-w-full lg:min-w-[657px] xl:min-w-[1357px]"
           src={entry.data.img_1}
           alt={entry.data.img_1_alt || ""}
           loading="lazy"
           decoding="async"
         />
       </aside>
-      <aside
-        class="mt-5 md:mt-0 -z-10 md:relative md:opacity-100 px-6 md:px-28"
-      >
+      <aside class="imageContainer h-full mt-5 lg:mt-0 lg:px-28">
         <img
-          class="h-full object-contain sm:h-unset min-w-[657px] md:min-w-[1315px]"
+          class="h-full object-contain sm:h-unset min-w-full lg:min-w-[657px] xl:min-w-[1357px]"
           src={entry.data.img_2}
           alt={entry.data.img_2_alt || ""}
           loading="lazy"
           decoding="async"
         />
       </aside>
-      <aside
-        class="mt-5 md:mt-0 -z-10 md:relative md:opacity-100 px-6 md:px-28"
-      >
+      <aside class="imageContainer h-full mt-5 lg:mt-0 lg:px-28">
         <img
-          class="h-full object-contain sm:h-unset min-w-[657px] md:min-w-[1315px]"
+          class="h-full object-contain sm:h-unset min-w-full lg:min-w-[657px] xl:min-w-[1357px]"
           src={entry.data.img_3}
           alt={entry.data.img_3_alt || ""}
           loading="lazy"

@@ -46,6 +46,11 @@ html:has(.singleProjectWrapper) {
     overflow-x: hidden;
 }
 
+.singleProjectWrapper {
+    max-width: unset !important;
+    width: 100% !important;
+}
+
 #navbar {
     padding: 1.5em 3.5em !important;
     filter: brightness(0) invert(1);
@@ -324,6 +329,21 @@ html:has(.singleProjectWrapper) {
     width: fit-content;
     display: flex;
     flex-wrap: nowrap;
+}
+
+.imagesWrapper {
+    display: flex;
+    flex-direction: column; /* Para dispositivos móviles */
+
+    @media (min-width: 1024px) {
+        flex-direction: row; /* Cambia a disposición horizontal en escritorio */
+    }
+}
+
+.imageContainer {
+    @media (min-width: 1024px) {
+        min-width: 657px; /* Configuración de ancho mínimo para escritorio */
+    }
 }
 
 /* Personaliza el color y el grosor de la línea si es necesario */

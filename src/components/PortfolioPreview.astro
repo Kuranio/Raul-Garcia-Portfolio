@@ -14,7 +14,7 @@ const { data, slug } = Astro.props.project;
   <div class="flex flex-col">
     <a
       href={`/work/${slug}`}
-      class="text-5xl lg:text-6xl xl:text-6xl 2xl:text-8xl underline"
+      class="text-5xl lg:text-6xl xl:text-6xl 2xl:text-[10rem] underline"
       data-aos="fade-right"
       data-aos-offset="200"
       data-aos-duration="1000"
@@ -22,12 +22,15 @@ const { data, slug } = Astro.props.project;
       {data.title}
     </a>
     <p
-      class="text-xl max-w-[200px] xl:text-3xl xl:self-end xl:max-w-[253px] mt-5"
+      class="text-xl max-w-[200px] xl:text-3xl xl:max-w-[253px] mt-5"
       data-aos="fade-left"
       data-aos-duration="1000"
     >
       {data.subtitle}
     </p>
+    <div class="flex flex-row justify-between mt-5 text-2xl">
+      <a class="underline" href={data.url} target="_blank">Visit site</a>
+    </div>
   </div>
 </div>
 <a href={`/work/${slug}`}>
