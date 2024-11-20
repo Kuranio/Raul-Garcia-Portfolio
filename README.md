@@ -1,4 +1,10 @@
+<img src="https://github.com/kuranio/Raul-Garcia-Portfolio/blob/master/public/assets/image.png" alt="My portfolio preview" />
+
+<div align="center">
+
 # 🌟 Personal Portfolio  
+
+</div>
 
 Welcome to my personal portfolio! 🎨 This is a website where I showcase my experience, projects, and skills, built with [Astro](https://astro.build/). It's fast, efficient, and optimized to provide a unique user experience.  
 

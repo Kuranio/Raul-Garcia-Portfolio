@@ -26,10 +26,7 @@ $anybody: 'Anybody', sans-serif;
 
 html {
     background-color: #e1dfdd;
-
-    @media (max-width: 425px) {
-        overflow-x: hidden;
-    }
+    overflow-x: hidden;
 }
 
 body {
