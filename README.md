@@ -1,4 +1,4 @@
-<img src="https://github.com/kuranio/Raul-Garcia-Portfolio/blob/master/public/assets/image.png" alt="My portfolio preview" />
+<img src="https://github.com/kuranio/Raul-Garcia-Portfolio/blob/master/public/assets/image.png?raw=true" alt="My portfolio preview" />
 
 <div align="center">
 
