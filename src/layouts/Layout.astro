@@ -16,11 +16,42 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Primary Meta Tags -->
+    <title>Raúl García</title>
+    <meta name="title" content="Raúl García" />
     <meta
       name="description"
       content="My name is Raul Garcia and I am dedicated to frontend web design and development. I currently work at 22GRADOS, a marketing agency that develops creative websites for different entities."
     />
-    <meta name="viewport" content="width=device-width" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://raulgarciadiaz.com/" />
+    <meta property="og:title" content="Raúl García" />
+    <meta
+      property="og:description"
+      content="My name is Raul Garcia and I am dedicated to frontend web design and development. I currently work at 22GRADOS, a marketing agency that develops creative websites for different entities."
+    />
+    <meta
+      property="og:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://raulgarciadiaz.com/" />
+    <meta property="twitter:title" content="Raúl García" />
+    <meta
+      property="twitter:description"
+      content="My name is Raul Garcia and I am dedicated to frontend web design and development. I currently work at 22GRADOS, a marketing agency that develops creative websites for different entities."
+    />
+    <meta
+      property="twitter:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
