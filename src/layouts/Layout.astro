@@ -1,6 +1,7 @@
 ---
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 import Nav from "../components/Nav.astro";
+import Analytics from "@vercel/analytics/astro";
 import Footer from "../components/Footer.astro";
 import { gsap } from "gsap";
 
@@ -66,6 +67,7 @@ const { title, description } = Astro.props;
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
     ></script>
     <ViewTransitions />
+    <Analytics />
     <title>Raúl García</title>
   </head>
   <body>
